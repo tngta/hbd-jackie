@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday Jackie! 🎉</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: #0f0c29;
+        background: linear-gradient(
+          135deg,
+          #0f0c29 0%,
+          #302b63 50%,
+          #24243e 100%
+        );
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      /* Animated background particles */
+      .particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 0;
+      }
+
+      .particle {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: rgba(255, 215, 0, 0.8);
+        border-radius: 50%;
+        animation: sparkle 3s infinite;
+      }
+
+      @keyframes sparkle {
+        0%,
+        100% {
+          opacity: 0;
+          transform: scale(0);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* Glowing orbs */
+      .orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(60px);
+        opacity: 0.3;
+        animation: float-orb 20s infinite ease-in-out;
+        z-index: 0;
+      }
+
+      .orb1 {
+        width: 400px;
+        height: 400px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        top: -100px;
+        left: -100px;
+        animation-delay: 0s;
+      }
+
+      .orb2 {
+        width: 350px;
+        height: 350px;
+        background: linear-gradient(135deg, #f093fb, #f5576c);
+        bottom: -100px;
+        right: -100px;
+        animation-delay: 7s;
+      }
+
+      .orb3 {
+        width: 300px;
+        height: 300px;
+        background: linear-gradient(135deg, #4facfe, #00f2fe);
+        top: 50%;
+        right: 10%;
+        animation-delay: 14s;
+      }
+
+      @keyframes float-orb {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        33% {
+          transform: translate(50px, -50px) scale(1.1);
+        }
+        66% {
+          transform: translate(-50px, 50px) scale(0.9);
+        }
+      }
+
+      .container {
+        text-align: center;
+        padding: 20px;
+        max-width: 900px;
+        width: 100%;
+        position: relative;
+        z-index: 10;
+      }
+
+      .birthday-header {
+        animation: fadeInDown 1.5s ease-out;
+        margin-bottom: 50px;
+      }
+
+      h1 {
+        color: transparent;
+        background: linear-gradient(135deg, #ffd700, #ffed4e, #ffd700);
+        background-size: 200% 200%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        font-size: 4em;
+        font-weight: 800;
+        margin-bottom: 15px;
+        text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        animation: gradient-shift 3s ease infinite,
+          glow-pulse 2s ease-in-out infinite;
+        letter-spacing: 2px;
+      }
+
+      @keyframes gradient-shift {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      @keyframes glow-pulse {
+        0%,
+        100% {
+          filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+        }
+        50% {
+          filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.9));
+        }
+      }
+
+      .date {
+        color: #fff;
+        font-size: 1.8em;
+        font-weight: 300;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        background-size: 200% 200%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: gradient-shift 3s ease infinite;
+      }
+
+      .secret-container {
+        margin: 60px 0;
+      }
+
+      .secret-button {
+        background: linear-gradient(135deg, #ffd700, #ffed4e, #ffc837);
+        background-size: 200% 200%;
+        color: #1a1a2e;
+        border: none;
+        padding: 25px 60px;
+        font-size: 1.6em;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 15px 50px rgba(255, 215, 0, 0.4),
+          0 0 30px rgba(255, 215, 0, 0.3);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        font-weight: 700;
+        animation: button-float 3s ease-in-out infinite;
+        position: relative;
+        overflow: hidden;
+        letter-spacing: 1px;
+      }
+
+      .secret-button::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+      }
+
+      .secret-button:hover::before {
+        width: 300px;
+        height: 300px;
+      }
+
+      .secret-button:hover {
+        transform: translateY(-8px) scale(1.05);
+        box-shadow: 0 20px 60px rgba(255, 215, 0, 0.6),
+          0 0 50px rgba(255, 215, 0, 0.5);
+        background-position: 100% 100%;
+      }
+
+      @keyframes button-float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .secret-content {
+        display: none;
+        animation: fadeIn 1.2s ease-out;
+      }
+
+      .secret-content.active {
+        display: block;
+      }
+
+      .video-container {
+        margin: 50px 0;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        padding: 40px;
+        border-radius: 30px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+          inset 0 0 50px rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        animation: slideUp 0.8s ease-out;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .video-container h2 {
+        color: #ffd700;
+        margin-bottom: 30px;
+        font-size: 2.2em;
+        font-weight: 700;
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+      }
+
+      .video-wrapper {
+        position: relative;
+        width: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        border: 2px solid rgba(255, 215, 0, 0.3);
+      }
+
+      .video-wrapper video {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 20px;
+      }
+
+      .wishes-section {
+        margin-top: 60px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        padding: 50px;
+        border-radius: 30px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+          inset 0 0 50px rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        animation: slideUp 1s ease-out;
+      }
+
+      .wishes-section h2 {
+        color: #ffd700;
+        margin-bottom: 40px;
+        font-size: 2.5em;
+        font-weight: 700;
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+      }
+
+      .wish-card {
+        background: linear-gradient(
+          135deg,
+          rgba(102, 126, 234, 0.3),
+          rgba(118, 75, 162, 0.3)
+        );
+        backdrop-filter: blur(10px);
+        color: white;
+        padding: 30px;
+        margin: 20px 0;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        animation: slideInRight 0.8s ease-out forwards;
+        opacity: 0;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .wish-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transition: left 0.6s;
+      }
+
+      .wish-card:hover::before {
+        left: 100%;
+      }
+
+      .wish-card:hover {
+        transform: translateX(10px) scale(1.02);
+        box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        border-color: rgba(255, 215, 0, 0.3);
+      }
+
+      .wish-card:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .wish-card:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      .wish-card:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+      .wish-card:nth-child(5) {
+        animation-delay: 0.4s;
+      }
+      .wish-card:nth-child(6) {
+        animation-delay: 0.5s;
+      }
+
+      .wish-card h3 {
+        margin-bottom: 15px;
+        font-size: 1.5em;
+        font-weight: 600;
+        color: #ffd700;
+      }
+
+      .wish-card p {
+        font-size: 1.15em;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-80px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(-80px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Confetti */
+      .confetti {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background: #ffd700;
+        position: absolute;
+        animation: confetti-fall 4s linear infinite;
+      }
+
+      @keyframes confetti-fall {
+        to {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.5em;
+        }
+        .date {
+          font-size: 1.3em;
+        }
+        .secret-button {
+          padding: 20px 40px;
+          font-size: 1.3em;
+        }
+        .video-container,
+        .wishes-section {
+          padding: 25px;
+        }
+        .wishes-section h2 {
+          font-size: 2em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Animated orbs -->
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+
+    <!-- Particles -->
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+      <div class="birthday-header">
+        <h1>🎉 Happy Birthday Jackie Hoang! 🎂</h1>
+        <p class="date">November 15th</p>
+      </div>
+
+      <div class="secret-container">
+        <button class="secret-button" id="secretBtn">
+          🎁 Click to Open Your Secret!
+        </button>
+
+        <div class="secret-content" id="secretContent">
+          <div class="video-container">
+            <h2>🎬 A Special Message for You!</h2>
+            <div class="video-wrapper">
+              <video controls>
+                <source src="buu.mov" type="video/mp4" />
+                <source src="buu.mov" type="video/quicktime" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
+          <div class="wishes-section">
+            <h2>💝 Birthday Wishes</h2>
+
+            <div class="wish-card">
+              <h3>✨ May Your Dreams Come True</h3>
+              <p>
+                Wishing you a year filled with endless possibilities, amazing
+                adventures, and dreams that all come true. You deserve nothing
+                but the best!
+              </p>
+            </div>
+
+            <div class="wish-card">
+              <h3>🌟 Stay Amazing</h3>
+              <p>
+                You bring so much joy and light to everyone around you. May this
+                year bring you as much happiness as you give to others!
+              </p>
+            </div>
+
+            <div class="wish-card">
+              <h3>🎊 Celebrate You</h3>
+              <p>
+                Today is all about celebrating the wonderful person you are.
+                Here's to another year of making beautiful memories!
+              </p>
+            </div>
+
+            <div class="wish-card">
+              <h3>💫 Health & Happiness</h3>
+              <p>
+                May this birthday mark the beginning of a year filled with good
+                health, true happiness, and beautiful surprises!
+              </p>
+            </div>
+
+            <div class="wish-card">
+              <h3>🎈 Cheers to Another Year</h3>
+              <p>
+                Another year older, another year wiser, another year more
+                fabulous! Keep shining bright, Jackie!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Create particles
+      const particlesContainer = document.getElementById("particles");
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement("div");
+        particle.className = "particle";
+        particle.style.left = Math.random() * 100 + "%";
+        particle.style.top = Math.random() * 100 + "%";
+        particle.style.animationDelay = Math.random() * 3 + "s";
+        particle.style.animationDuration = Math.random() * 2 + 2 + "s";
+        particlesContainer.appendChild(particle);
+      }
+
+      // Secret button functionality
+      const secretBtn = document.getElementById("secretBtn");
+      const secretContent = document.getElementById("secretContent");
+
+      secretBtn.addEventListener("click", function () {
+        // Create confetti effect
+        for (let i = 0; i < 100; i++) {
+          setTimeout(() => {
+            const confetti = document.createElement("div");
+            confetti.className = "confetti";
+            confetti.style.left = Math.random() * 100 + "%";
+            confetti.style.top = "-10px";
+            confetti.style.background = `hsl(${
+              Math.random() * 360
+            }, 100%, 50%)`;
+            confetti.style.animationDelay = Math.random() * 0.5 + "s";
+            document.body.appendChild(confetti);
+
+            setTimeout(() => confetti.remove(), 4000);
+          }, i * 30);
+        }
+
+        secretContent.classList.add("active");
+        secretBtn.style.display = "none";
+
+        // Smooth scroll to video
+        setTimeout(() => {
+          secretContent.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100);
+      });
+    </script>
+  </body>
+</html>
