@@ -39,6 +39,45 @@
         color: #f5f5f5;
       }
 
+      /* 101E Background Text */
+      .bg-text {
+        position: fixed;
+        font-family: "Playfair Display", serif;
+        font-size: 25vw;
+        font-weight: 900;
+        color: transparent;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        letter-spacing: -0.05em;
+        z-index: 1;
+        pointer-events: none;
+        white-space: nowrap;
+        opacity: 0;
+        transition: opacity 0.8s ease;
+        -webkit-text-stroke: 1px rgba(139, 90, 43, 0.1);
+        text-stroke: 1px rgba(139, 90, 43, 0.1);
+      }
+
+      body:hover .bg-text {
+        opacity: 1;
+        animation: pulse-glow 3s ease infinite;
+      }
+
+      @keyframes pulse-glow {
+        0%,
+        100% {
+          -webkit-text-stroke: 1px rgba(139, 90, 43, 0.1);
+          text-stroke: 1px rgba(139, 90, 43, 0.1);
+          transform: translate(-50%, -50%) scale(1);
+        }
+        50% {
+          -webkit-text-stroke: 2px rgba(139, 90, 43, 0.2);
+          text-stroke: 2px rgba(139, 90, 43, 0.2);
+          transform: translate(-50%, -50%) scale(1.02);
+        }
+      }
+
       /* Geometric patterns */
       .geometric-bg {
         position: fixed;
@@ -96,20 +135,20 @@
         animation: slide-line 10s infinite linear;
       }
 
-      .line:nth-child(1) {
+      .line:nth-child(2) {
         top: 20%;
         animation-delay: 0s;
       }
-      .line:nth-child(2) {
+      .line:nth-child(3) {
         top: 40%;
         animation-delay: 2s;
         animation-direction: reverse;
       }
-      .line:nth-child(3) {
+      .line:nth-child(4) {
         top: 60%;
         animation-delay: 4s;
       }
-      .line:nth-child(4) {
+      .line:nth-child(5) {
         top: 80%;
         animation-delay: 6s;
         animation-direction: reverse;
@@ -281,9 +320,35 @@
         display: block;
       }
 
+      /* Wishes Section with Frame */
       .wishes-section {
         margin-top: 100px;
         animation: fadeIn 1s ease-out;
+      }
+
+      .wishes-frame {
+        background: #0a0a0a;
+        padding: 80px;
+        border: 1px solid #2a2a2a;
+        box-shadow: inset 0 0 0 20px #0f0f0f, inset 0 0 0 21px #333,
+          inset 0 0 0 40px #0a0a0a, inset 0 0 0 41px #2a2a2a,
+          0 30px 80px rgba(0, 0, 0, 0.9);
+        position: relative;
+        margin-bottom: 100px;
+      }
+
+      .wishes-frame::before {
+        content: "BIRTHDAY WISHES";
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "Playfair Display", serif;
+        font-size: 1em;
+        letter-spacing: 5px;
+        color: #8b5a2b;
+        text-transform: uppercase;
+        font-weight: 300;
       }
 
       .wishes-section h2 {
@@ -311,7 +376,6 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 30px;
-        margin-top: 60px;
       }
 
       .wish-card {
@@ -325,7 +389,6 @@
         overflow: hidden;
       }
 
-      /* Creative card layouts */
       .wish-card:nth-child(odd) {
         border-left: 3px solid #8b5a2b;
       }
@@ -414,6 +477,140 @@
         font-family: "Playfair Display", serif;
       }
 
+      /* Photo Gallery Section */
+      .gallery-section {
+        margin-top: 120px;
+        animation: fadeIn 1.2s ease-out;
+        margin-bottom: 100px;
+      }
+
+      .gallery-section h2 {
+        font-family: "Playfair Display", serif;
+        color: white;
+        margin-bottom: 80px;
+        font-size: 3em;
+        font-weight: 700;
+        position: relative;
+        display: inline-block;
+      }
+
+      .gallery-section h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 2px;
+        background: #8b5a2b;
+      }
+
+      .photo-frame {
+        max-width: 800px;
+        margin: 0 auto;
+        background: #0a0a0a;
+        padding: 60px;
+        border: 1px solid #2a2a2a;
+        box-shadow: inset 0 0 0 15px #0f0f0f, inset 0 0 0 16px #333,
+          inset 0 0 0 35px #0a0a0a, inset 0 0 0 36px #2a2a2a,
+          0 40px 100px rgba(0, 0, 0, 0.9);
+        position: relative;
+        animation: slideInScale 1s ease-out;
+      }
+
+      @keyframes slideInScale {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .photo-frame::before {
+        content: "101E";
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        font-family: "Playfair Display", serif;
+        font-size: 0.9em;
+        letter-spacing: 3px;
+        color: #8b5a2b;
+        font-weight: 700;
+      }
+
+      .photo-frame::after {
+        content: "anh em có kiếp này, kiếp sau làm lại";
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.7em;
+        letter-spacing: 3px;
+        color: #666;
+        text-transform: uppercase;
+        white-space: nowrap;
+        font-weight: 300;
+      }
+
+      .photo-content {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        background: #111;
+        border: 1px solid #333;
+        overflow: hidden;
+      }
+
+      .photo-content img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(0.3);
+        transition: all 0.5s ease;
+      }
+
+      .photo-content:hover img {
+        filter: grayscale(0);
+        transform: scale(1.05);
+      }
+
+      /* Photo placeholder */
+      .photo-content:not(:has(img)) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+            45deg,
+            #0a0a0a 25%,
+            transparent 25%,
+            transparent 75%,
+            #0a0a0a 75%,
+            #0a0a0a
+          ),
+          linear-gradient(
+            45deg,
+            #0a0a0a 25%,
+            #111 25%,
+            #111 75%,
+            #0a0a0a 75%,
+            #0a0a0a
+          );
+        background-size: 30px 30px;
+        background-position: 0 0, 15px 15px;
+      }
+
+      .photo-content:not(:has(img))::before {
+        content: "Add Your Special Photo";
+        font-family: "Playfair Display", serif;
+        font-size: 1.5em;
+        color: #333;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
       @keyframes fadeInDown {
         from {
           opacity: 0;
@@ -434,7 +631,7 @@
         }
       }
 
-      /* Confetti - now in grayscale */
+      /* Confetti */
       .confetti {
         position: fixed;
         width: 10px;
@@ -537,10 +734,22 @@
         .wish-card {
           padding: 30px;
         }
+        .wishes-frame {
+          padding: 40px;
+        }
+        .photo-frame {
+          padding: 30px;
+        }
+        .bg-text {
+          font-size: 40vw;
+        }
       }
     </style>
   </head>
   <body>
+    <!-- 101E Background Text -->
+    <div class="bg-text">101E</div>
+
     <!-- Geometric background -->
     <div class="geometric-bg"></div>
 
@@ -587,57 +796,52 @@
           </div>
 
           <div class="wishes-section">
-            <h2>Birthday Wishes</h2>
+            <h2>Đôi lời anh em gửi Quí Bửu</h2>
 
-            <div class="wishes-grid">
-              <div class="wish-card">
-                <span class="card-number">01</span>
-                <h3>Dreams & Aspirations</h3>
-                <p>
-                  May this year bring you closer to everything you've ever
-                  dreamed of. Your potential is limitless, and your journey is
-                  just beginning.
-                </p>
+            <div class="wishes-frame">
+              <div class="wishes-grid">
+                <div class="wish-card">
+                  <span class="card-number">01</span>
+                  <h3>Lời chúc của anh em</h3>
+                  <p>
+                    Hôm nay là một ngày thật đặc biệt, mong bạn luôn tràn đầy
+                    niềm vui và năng lượng tích cực. Chúc Bửu đạt được mọi mục
+                    tiêu mà bạn đã đặt ra, dù là trong công việc hay cuộc sống.
+                    Hy vọng năm mới tuổi mới sẽ mang đến cho bạn nhiều cơ hội
+                    tốt đẹp và những trải nghiệm đáng nhớ. Chúc bạn luôn mạnh
+                    khỏe, hạnh phúc và được bao quanh bởi những người yêu thương
+                    bạn thật lòng.
+                  </p>
+                </div>
+
+                <div class="wish-card">
+                  <span class="card-number">02</span>
+                  <h3>Lời chúc của ChatGPT</h3>
+                  <p>
+                    Đầu đường, đầu chợ, không đầu hàng. Bán ngựa, bán lá, không
+                    bán anh em.
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    hết r, đang đợi gì hả Bửu?
+                  </p>
+                </div>
               </div>
+            </div>
+          </div>
 
-              <div class="wish-card">
-                <span class="card-number">02</span>
-                <h3>Joy & Laughter</h3>
-                <p>
-                  May your days be filled with genuine smiles and moments that
-                  take your breath away. You deserve all the happiness this
-                  world has to offer.
-                </p>
-              </div>
+          <!-- Photo Gallery Section -->
+          <div class="gallery-section">
+            <h2>A Special Memory</h2>
 
-              <div class="wish-card">
-                <span class="card-number">03</span>
-                <h3>Growth & Discovery</h3>
-                <p>
-                  Here's to another year of learning, evolving, and becoming the
-                  best version of yourself. Every challenge is an opportunity in
-                  disguise.
-                </p>
-              </div>
-
-              <div class="wish-card">
-                <span class="card-number">04</span>
-                <h3>Love & Connection</h3>
-                <p>
-                  May you be surrounded by people who appreciate your unique
-                  spirit and support your journey. Your presence makes the world
-                  brighter.
-                </p>
-              </div>
-
-              <div class="wish-card">
-                <span class="card-number">05</span>
-                <h3>Adventure Awaits</h3>
-                <p>
-                  Another year older, another year bolder. May this year be
-                  filled with exciting adventures and stories worth telling for
-                  years to come.
-                </p>
+            <div class="photo-frame">
+              <div class="photo-content">
+                <img src="hinh.jpeg" alt="Special Memory" />
               </div>
             </div>
           </div>
